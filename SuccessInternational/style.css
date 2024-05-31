@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "AsapR";
+    src: url("fonts/Asap-Regular.ttf");
+}
+
+@font-face {
+    font-family: "AsapB";
+    src: url("fonts/Asap-Bold.ttf");
+}
+
+@font-face {
+    font-family: "AsapI";
+    src: url("fonts/Asap-Italic.ttf");
+}
+
+* {
+    font-family: "AsapR";
+}
+
+
+/* index */
+
+.indexlogo {
+    background-image: url("resources/logofinal120.png");
+    height: 120px;
+    width: 120px;
+    position: relative;
+}
+
+.logincover {
+    background-image: url("resources/logincover.jpg");
+    height: 400px;
+    /* width: 95%; */
+    z-index: 9;
+    /* position: absolute; */
+    background-position-x: right;
+}
+
+
+/* button */
+
+[class^=btn-] {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+}
+
+.btn-7 {
+    color: white;
+}
+
+.btn-7:hover {
+    transition-duration: 1.5s;
+    color: blue;
+    background-color: rgb(183, 212, 238);
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+
+/* home */
+
+
+/* navbar */
+
+.navbar-expand {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $next: breakpoint-next($breakpoint, $grid-breakpoints);
+        $infix: breakpoint-infix($next, $grid-breakpoints);
+        // stylelint-disable-next-line scss/selector-no-union-class-name
+        &#{$infix} {
+            @include media-breakpoint-up($next) {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                .navbar-nav {
+                    flex-direction: row;
+                    .dropdown-menu {
+                        position: absolute;
+                    }
+                    .nav-link {
+                        padding-right: $navbar-nav-link-padding-x;
+                        padding-left: $navbar-nav-link-padding-x;
+                    }
+                }
+                .navbar-nav-scroll {
+                    overflow: visible;
+                }
+                .navbar-collapse {
+                    display: flex !important; // stylelint-disable-line declaration-no-important
+                    flex-basis: auto;
+                }
+                .navbar-toggler {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+/* history div */
+
+.history-image {
+    background-image: url("resources/children.png");
+    z-index: 99;
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.historyyear {
+    border-right: 2px solid rgb(48, 47, 47);
+    height: max-content;
+    background-position-y: center;
+    margin-top: 25px;
+}
+
+
+/* academicofficersignin */
+
+.boldtext {
+    font-family: "AsapB";
+}
+
+
+/* teacherPanel */
+
+.addIcon:hover {
+    cursor: pointer;
+}
+
+.inputbottomborder {
+    border-bottom: black 1px solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline-style: none;
+}
